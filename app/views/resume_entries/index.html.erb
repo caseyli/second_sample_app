@@ -1,0 +1,16 @@
+<table>
+	<tr>
+		<th>Start Date</th>
+		<th>End Date</th>
+		<th>Description</th>
+	</tr>
+	<% @resume_entries.each do |resume_entry| %>
+		<tr>
+			<td><%= resume_entry.start_date %></td>
+			<td><%= resume_entry.end_date %></td>
+			<td><%= resume_entry.description %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to "Add New Resume Entry", "/resume_entries/new" %>

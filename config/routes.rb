@@ -2,6 +2,17 @@ SecondSampleApp::Application.routes.draw do
   get "static_pages/home"
   get "static_pages/help"
 	get "static_pages/about"
+	
+	get "/home" => "static_pages#home"
+	
+	root "static_pages#home"
+	
+	
+	# Resume Entries Resource
+	match "/resume_entries", to: "resume_entries#index", via: "get"
+	match "/resume_entries/new", to: "resume_entries#new", via: "get"
+	match "/resume_entries", to: "resume_entries#create", via: "post"
+	
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
