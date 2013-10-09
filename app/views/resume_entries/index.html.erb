@@ -3,12 +3,18 @@
 		<th>Start Date</th>
 		<th>End Date</th>
 		<th>Description</th>
+		<th></th>
+		<th></th>
+		<th></th>
 	</tr>
 	<% @resume_entries.each do |resume_entry| %>
 		<tr>
 			<td><%= resume_entry.start_date %></td>
 			<td><%= resume_entry.end_date %></td>
 			<td><%= resume_entry.description %></td>
+			<td><%= link_to "Show", "/resume_entries/#{resume_entry.to_param}" %></td>
+			<td><%= link_to "Edit", "/resume_entries/#{resume_entry.to_param}/edit" %></td>
+			<td><%= link_to "Destroy", "/resume_entries/#{resume_entry.to_param}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 	<% end %>
 </table>

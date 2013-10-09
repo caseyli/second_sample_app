@@ -1,4 +1,6 @@
 SecondSampleApp::Application.routes.draw do
+  resources :settings
+
   get "static_pages/home"
   get "static_pages/help"
 	get "static_pages/about"
@@ -12,6 +14,10 @@ SecondSampleApp::Application.routes.draw do
 	match "/resume_entries", to: "resume_entries#index", via: "get"
 	match "/resume_entries/new", to: "resume_entries#new", via: "get"
 	match "/resume_entries", to: "resume_entries#create", via: "post"
+	match "/resume_entries/:id", to: "resume_entries#show", via: "get"
+	match "/resume_entries/:id/edit", to: "resume_entries#edit", via: "get"
+	match "/resume_entries/:id", to: "resume_entries#update", via: "post"
+	match "/resume_entries/:id", to: "resume_entries#destroy", via: "delete"
 	
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
