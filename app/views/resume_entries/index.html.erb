@@ -12,11 +12,11 @@
 			<td><%= resume_entry.start_date %></td>
 			<td><%= resume_entry.end_date %></td>
 			<td><%= resume_entry.description %></td>
-			<td><%= link_to "Show", "/resume_entries/#{resume_entry.to_param}" %></td>
-			<td><%= link_to "Edit", "/resume_entries/#{resume_entry.to_param}/edit" %></td>
-			<td><%= link_to "Destroy", "/resume_entries/#{resume_entry.to_param}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= link_to "Show", resume_entry %></td>
+			<td><%= link_to "Edit", edit_resume_entry_path(resume_entry) %></td>
+			<td><%= link_to "Destroy", resume_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 	<% end %>
 </table>
 
-<%= link_to "Add New Resume Entry", "/resume_entries/new" %>
+<%= link_to "Add New Resume Entry", new_resume_entry_path %>

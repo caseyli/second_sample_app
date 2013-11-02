@@ -1,18 +1,3 @@
 <h1>Edit Resume Entry</h1>
-<%= form_for(@resume_entry, url: "/resume_entries/#{@resume_entry.to_param}", method: :post) do |f| %>
-	<div class="field">
-		<%= f.label :start_date %><br>
-		<%= f.text_field :start_date %>
-	</div>
-	<div class="field">
-		<%= f.label :end_date %><br>
-		<%= f.text_field :end_date %>
-	</div>
-	<div class="field">
-		<%= f.label :description %><br>
-		<%= f.text_area :description %>
-	</div>
-	<div class="actions">
-		<%= f.submit "Submit" %>
-	</div>
-<% end %>
+<%= render "fields" %>
+<%= link_to "Back", resume_entries_path %>

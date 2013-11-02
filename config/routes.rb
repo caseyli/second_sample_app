@@ -1,22 +1,26 @@
 SecondSampleApp::Application.routes.draw do
+  resources :users
   resources :settings
+  match '/signup',  to: 'users#new',            via: 'get'
 
   get "static_pages/home"
   get "static_pages/help"
 	get "static_pages/about"
+  get "static_pages/contact"
 	
-	get "/home" => "static_pages#home"
+	get "/home", to: "static_pages#home"
+  match "/contact", to: "static_pages#contact", via: [:post, :get]
 	
 	root "static_pages#home"
 	
 	
 	# Resume Entries Resource
-	match "/resume_entries", to: "resume_entries#index", via: "get"
-	match "/resume_entries/new", to: "resume_entries#new", via: "get"
+	match "/resume_entries", to: "resume_entries#index", via: "get", as: :resume_entries
+	match "/resume_entries/new", to: "resume_entries#new", via: "get", as: :new_resume_entry
 	match "/resume_entries", to: "resume_entries#create", via: "post"
-	match "/resume_entries/:id", to: "resume_entries#show", via: "get"
-	match "/resume_entries/:id/edit", to: "resume_entries#edit", via: "get"
-	match "/resume_entries/:id", to: "resume_entries#update", via: "post"
+	match "/resume_entries/:id", to: "resume_entries#show", via: "get", as: :resume_entry
+	match "/resume_entries/:id/edit", to: "resume_entries#edit", via: "get", as: :edit_resume_entry
+	match "/resume_entries/:id", to: "resume_entries#update", via: "patch"
 	match "/resume_entries/:id", to: "resume_entries#destroy", via: "delete"
 	
   # The priority is based upon order of creation: first created -> highest priority.
